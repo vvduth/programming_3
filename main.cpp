@@ -8,7 +8,7 @@
 using namespace std ;
 
 void search(int arr[], int repetitions, int size,
-    uint8_t is_successful, time_comp_storage* timings)
+    uint8_t is_successful, time_stat* timings)
 {
     //int arrSize = sizeof(arr)/sizeof(arr[0]); 
     for (auto i = repetitions; i > 0; --i) {
@@ -116,34 +116,40 @@ void group1()
 
 void group2()
 {
-    auto data_size = 0, repetitions = 0, key = 0, i = -1;
+    auto data_size = 0, repetitions = 0, key = 0, odd = -1;
     cout << "Enter the data size and the number of run time:\n";
     cin >> data_size >> repetitions;
     cout << std::endl;
     int* group2_arr;
     group2_arr = new int [data_size];
+    for (int i = 0 ; i < data_size ; i++) {
+        odd = odd + 2 ;
+        group2_arr[i] = odd  ;
+    }
 
-    time_comp_storage successful;
+    time_stat successful;
     search(group2_arr, repetitions,data_size, 1, &successful);
+    
 
-    time_comp_storage unsuccessful;
+    time_stat unsuccessful;
     search(group2_arr, repetitions,data_size, 0, &unsuccessful);
+
 
     cout << "Linear search:\n" << string(20, '-')
          << "\nStatus: Successful\n" << "Elapsed per search: "
          << successful.etime_linear << "[ns]\n"
          << "Comparisons per search: " << successful.linear_comp_num
          << "\nSearches: " << repetitions << "\n\nStatus: Unsuccessful\n"
-         << "Elapsed per search: " << unsuccessful.etime_linear << "ns\n"
+         << "Elapsed per search: " << unsuccessful.etime_linear << "[ns]\n"
          << "Comparisons per search: " << unsuccessful.linear_comp_num
          << "\nSearches: " << repetitions << "\n\n\n";
 
-    cout<< "Binary search:\n" << std::string(30, '-')
+    cout<< "Iterative binary search:\n" << std::string(30, '-')
         << "\nStatus: Successful\n" << "Elapsed per search: "
         << successful.etime_bin << "[ns]\n"
         << "Comparisons per search: " << successful.bin_comp_num
         << "\nSearches: " << repetitions << "\n\nStatus: Unsuccessful\n"
-        << "Elapsed per search: " << unsuccessful.etime_bin << "ns\n"
+        << "Elapsed per search: " << unsuccessful.etime_bin << "[ns]\n"
         << "Comparisons per search: " << unsuccessful.bin_comp_num
         << "\nSearches: " << repetitions << std::endl;
 

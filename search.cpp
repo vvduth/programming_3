@@ -6,6 +6,7 @@ int linearSearch(int a[], int n , int x, int *comparison_num ){
 		if (a[i] == x){
 			return i;
 		}
+        
 	}
 	return -1;   
 }
