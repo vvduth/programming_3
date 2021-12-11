@@ -117,8 +117,10 @@ void group1()
 void group2()
 {
     auto data_size = 0, repetitions = 0, key = 0, odd = -1;
-    cout << "Enter the data size and the number of run time:\n";
-    cin >> data_size >> repetitions;
+    cout << "Enter the data size :  ";
+    cin >> data_size ; cout << endl ;
+    cout << "Enter the number of runtimes: " ;
+    cin >> repetitions; cout << endl ;
     cout << std::endl;
     int* group2_arr;
     group2_arr = new int [data_size];
@@ -160,7 +162,7 @@ void group4() {
     int data_size = 0, elems_num = 0;
      cout << "Enter the data size:\n";
      cin >> data_size ;
-     cout << "Enter the number of elements you want to print:\n";
+     cout << "Enter the number of elements you want to print: \n";
      cin >> elems_num; 
      cout << endl;
      //vector<int> vec(data_size);
@@ -205,7 +207,7 @@ char get_command()
 {
     char command;
     bool waiting = true;
-    cout << "Select command and press <Enter>:";
+    cout << "Select command and press <Enter>:  ";
 
     while (waiting)
     {
